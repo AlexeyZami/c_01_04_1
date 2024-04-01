@@ -5,8 +5,9 @@ import java.util.List;
 public class Reader_Writer {
     Encoder encoder = new Encoder();
     Decoder decoder = new Decoder();
-    private String incomingFile = "/Users/aleksejlalakin/IdeaProjects/caesar01_04_1/src/result.txt";
-    private String outgoingFile = "/Users/aleksejlalakin/IdeaProjects/caesar01_04_1/src/result2.txt";
+    ChangerFactory factory = new ChangerFactory();
+    private String incomingFile = "/Users/aleksejlalakin/IdeaProjects/caesar01_04_1/src/result2.txt";
+    private String outgoingFile = "/Users/aleksejlalakin/IdeaProjects/caesar01_04_1/src/result.txt";
     List<Integer> listInteger = new ArrayList<>();
     public List<Integer> convertToListInteger(){
 
@@ -20,11 +21,11 @@ public class Reader_Writer {
         }
         return listInteger;
     }
-    public void writingChangedTextToFile(){
+    public void writingChangedTextToFile(int number){
         try {
             FileWriter writer = new FileWriter(outgoingFile);
             StringBuilder sb = new StringBuilder();
-            for (Character character : decoder.decryption(convertToListInteger())) {
+            for (Character character : factory.getChanger(number).modification(convertToListInteger())) {
                 sb.append(character.toString());
             }
             String str = sb.toString();
