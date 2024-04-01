@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Reader_Writer {
+    Encoder encoder = new Encoder();
     private String incomingFile = "/Users/aleksejlalakin/IdeaProjects/caesar01_04_1/src/text.txt";
     private String outgoingFile = "/Users/aleksejlalakin/IdeaProjects/caesar01_04_1/src/result.txt";
     List<Integer> listInteger = new ArrayList<>();
@@ -18,19 +19,19 @@ public class Reader_Writer {
         }
         return listInteger;
     }
-//    public void writingChangedTextToFile(){
-//        try {
-//            FileWriter writer = new FileWriter(outgoingFile);
-//            StringBuilder sb = new StringBuilder();
-//            for (Character character : encryptedList) {
-//                sb.append(character.toString());
-//            }
-//            String str = sb.toString();
-//            writer.write(str);
-//            writer.close();
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void writingChangedTextToFile(){
+        try {
+            FileWriter writer = new FileWriter(outgoingFile);
+            StringBuilder sb = new StringBuilder();
+            for (Character character : encoder.encryption(convertToListInteger())) {
+                sb.append(character.toString());
+            }
+            String str = sb.toString();
+            writer.write(str);
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
