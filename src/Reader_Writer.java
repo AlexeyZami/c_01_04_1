@@ -4,8 +4,9 @@ import java.util.List;
 
 public class Reader_Writer {
     Encoder encoder = new Encoder();
-    private String incomingFile = "/Users/aleksejlalakin/IdeaProjects/caesar01_04_1/src/text.txt";
-    private String outgoingFile = "/Users/aleksejlalakin/IdeaProjects/caesar01_04_1/src/result.txt";
+    Decoder decoder = new Decoder();
+    private String incomingFile = "/Users/aleksejlalakin/IdeaProjects/caesar01_04_1/src/result.txt";
+    private String outgoingFile = "/Users/aleksejlalakin/IdeaProjects/caesar01_04_1/src/result2.txt";
     List<Integer> listInteger = new ArrayList<>();
     public List<Integer> convertToListInteger(){
 
@@ -23,7 +24,7 @@ public class Reader_Writer {
         try {
             FileWriter writer = new FileWriter(outgoingFile);
             StringBuilder sb = new StringBuilder();
-            for (Character character : encoder.encryption(convertToListInteger())) {
+            for (Character character : decoder.decryption(convertToListInteger())) {
                 sb.append(character.toString());
             }
             String str = sb.toString();
