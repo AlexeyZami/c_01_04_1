@@ -3,11 +3,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Reader_Writer {
-    Encoder encoder = new Encoder();
-    Decoder decoder = new Decoder();
     ChangerFactory factory = new ChangerFactory();
-    private String incomingFile = "/Users/aleksejlalakin/IdeaProjects/caesar01_04_1/src/result2.txt";
-    private String outgoingFile = "/Users/aleksejlalakin/IdeaProjects/caesar01_04_1/src/result.txt";
+    UserInteraction userInteraction = new UserInteraction();
+    private String incomingFile = userInteraction.getIncomingFilePath();
+
+    private String outgoingFilePath = userInteraction.getOutgoingFilePath();
     List<Integer> listInteger = new ArrayList<>();
     public List<Integer> convertToListInteger(){
 
@@ -23,7 +23,7 @@ public class Reader_Writer {
     }
     public void writingChangedTextToFile(int number){
         try {
-            FileWriter writer = new FileWriter(outgoingFile);
+            FileWriter writer = new FileWriter(outgoingFilePath);
             StringBuilder sb = new StringBuilder();
             for (Character character : factory.getChanger(number).modification(convertToListInteger())) {
                 sb.append(character.toString());
