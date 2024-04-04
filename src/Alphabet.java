@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Alphabet {
-    public final String alphaString = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя" +
+    public  String alphaString = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя" +
             "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ.,\":-!? ";
     public final List<Integer> alphaList = createList(alphaString);
     public List<Integer> createList(String alphaString){

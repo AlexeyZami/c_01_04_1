@@ -1,11 +1,13 @@
+import java.util.ArrayList;
 import java.util.List;
 
-public class Decoder extends ChangerCreator{
+public class Decoder extends ChangerText{
 
-    public List<Character> modification(List<Integer> listInteger){
+    public List<Character> modification(List<Integer> listInteger, int key){
+        List<Character> changedList = new ArrayList<>();
         for (Integer integer : listInteger) {
-            if (alphabet.alphaList.contains((int)integer - 10)){
-                changedList.add((char)(((int) integer) - 10));
+            if (alphabet.alphaList.contains((int)integer - key)){
+                changedList.add((char)(((int) integer) - key));
             } else {
                 changedList.add((char)((int) integer));
             }
